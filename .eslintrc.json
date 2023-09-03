@@ -9,7 +9,12 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": {},
+  "rules": {
+    "semi": "off",
+    "@typescript-eslint/semi": "off",
+    "comma-dangle": "off",
+    "@typescript-eslint/comma-dangle": "off"
+  },
 
   "settings": {
     "react": {

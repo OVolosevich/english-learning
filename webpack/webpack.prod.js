@@ -1,4 +1,6 @@
-module.exports = {
-    mode: 'production',
-    devtool: 'source-map',
-  };
+const prodConfig = {
+  mode: 'production',
+  devtool: 'source-map',
+}
+
+export default prodConfig;
