@@ -1,26 +1,18 @@
-import React, { useEffect } from 'react';
-import jwt_decode from 'jwt-decode';
-import SignUpPage from './src/pages/SignUpPage/SignUpPage.tsx';
+import React from 'react';
+
+import Home from './src/pages/Home/Home';
+import Auth from './src/pages/Auth/Auth';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const App = (): JSX.Element => {
-  useEffect(() => {
-    google.accounts.id.initialize({
-      client_id:
-        '983865956836-ehqa2t8fnjgen55eberv9ugv57qunej7.apps.googleusercontent.com',
-      // callback: (response) => console.log(jwt_decode(response.credential)),
-      callback: (response) => console.log(response),
-    });
-
-    google.accounts.id.renderButton(
-      document.getElementById('google-signin-button'),
-      { theme: 'outline', size: 'large' }
-    );
-  }, []);
-
   return (
-    <div>
-     <div id='google-signin-button'></div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/sign-in' element={<Auth />} />
+        <Route path='/sign-up' element={<Auth />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 export default App;

@@ -14,7 +14,7 @@
     ],
     "jsx": "react-jsx",
     "allowJs": false,
-    "moduleResolution": "nodenext",
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,
