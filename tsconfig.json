@@ -14,7 +14,7 @@
     ],
     "jsx": "react-jsx",
     "allowJs": false,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,
@@ -31,7 +31,6 @@
     "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
 

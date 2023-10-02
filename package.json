@@ -5,8 +5,8 @@
   "main": "main.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_OPTIONS='--experimental-specifier-resolution=node' webpack-dev-server --open --config webpack/webpack.config.js --env env=dev --hot",
-    "build": "NODE_OPTIONS='--experimental-specifier-resolution=node' webpack --config webpack/webpack.config.js --env env=prod",
+    "start": "webpack-dev-server --open --config webpack/webpack.config.js --env env=dev --hot",
+    "build": "webpack --config webpack/webpack.config.js --env env=prod",
     "lint": "eslint --fix --ext .ts,.tsx, ."
   },
   "repository": {
@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/OVolosevich/english-learning-front#readme",
   "devDependencies": {
+    "@types/google-one-tap": "^1.2.2",
+    "@types/google.accounts": "^0.0.9",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
@@ -44,8 +46,10 @@
     "webpack-merge": "^5.9.0"
   },
   "dependencies": {
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0"
   },
   "type": "module"
 }
