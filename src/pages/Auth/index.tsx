@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import { encrypt } from './services';
-import usersApiClient from './../../api/UsersClient/UsersClient';
+import usersApiClient from '../../api/UsersClient/UsersClient';
+import { useUserStore } from '../../store';
 
 const Auth = (): JSX.Element => {
-  const [userEmail, setUserEmail] = useState<string>('');
+  const userEmail = useUserStore((state) => state.email);
+  const setUserEmail = useUserStore((state) => state.setEmail);
+  const navigate = useNavigate();
   useEffect(() => {
     const googleButton = document.getElementById('google-signin-button');
     google.accounts.id.initialize({
@@ -38,6 +41,13 @@ const Auth = (): JSX.Element => {
         });
     }
   }, [userEmail]);
+
+  useEffect(() => {
+    if (userEmail) {
+      navigate('/');
+    }
+  }, [userEmail]);
+
   return (
     <div>
       {!userEmail && <div id='google-signin-button'></div>}

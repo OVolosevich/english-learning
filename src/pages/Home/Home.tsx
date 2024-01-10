@@ -1,20 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useUserStore } from './../../store';
+import { useNavigate } from 'react-router-dom';
 
 const Home = (): JSX.Element => {
+  const navigate = useNavigate();
+  const userEmail = useUserStore((state) => state.email);
+  const setUserEmail = useUserStore((state) => state.setEmail);
+  useEffect(() => {
+    if (!userEmail) {
+      navigate('/sign-in');
+    }
+  }, [userEmail]);
   return (
     <div>
-      <Link to='/sign-in'>Sign In</Link>
-      <br />
-      <Link to='/sign-up'>Sign Up</Link>
       <div
         className='g_id_signout'
         onClick={() => {
           google.accounts.id.disableAutoSelect();
+          setUserEmail('');
         }}
       >
         Sign Out
       </div>
+      <h1>HOME PAGE</h1>
     </div>
   );
 };
