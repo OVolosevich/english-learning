@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useUserStore } from './../../store';
+import { useEffect } from 'react';
+import { useUserStore } from '../../store';
 import { useNavigate } from 'react-router-dom';
 
 const Home = (): JSX.Element => {
